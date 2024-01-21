@@ -10,7 +10,9 @@
     <input type="text" class="searchField" v-model="searchText" placeholder="customer or fin..."  v-on:keyup.enter="searchCustomer"/>
     <h3 v-if="customers.length > 0">Customers</h3>
     <div v-for="customer in customers" v-bind:key="customer.id">
-      <h2>{{ customer.name }}</h2>
+      <router-link :to="{ name: 'userDetails', params: { id: customer.customerId } }">
+        <h2>{{ customer.name }}</h2>
+      </router-link>
     </div>
   </div>
 
